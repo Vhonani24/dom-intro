@@ -1,6 +1,8 @@
 // get a reference to the sms or call radio buttons
+const radioButton = document.querySelector('.label-body');
 
 //get a reference to the add button
+const addButton = document.querySelector('.button-primary');
 
 //create a variable that will keep track of the total bill
 
