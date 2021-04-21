@@ -33,14 +33,18 @@ function calculateBtnClicked(){
     //round to two decimals
     var roundedBillTotal = totalPhoneBill.toFixed(2);
     billTotal.innerHTML = roundedBillTotal;
-    if(totalPhoneBill >= 30){
-        billTotal.classList.add('danger')
-        billTotal.classList.remove('warning')
+    if(totalPhoneBill > 20){
+        billTotal.classList.add('warning');
+        billTotal.classList.remove('danger');
         
     }
-    else if(totalPhoneBill >= 20 && totalPhoneBill < 30){
-        billTotal.classList.add('warning')
-        billTotal.classList.remove('danger') 
+    else if(totalPhoneBill > 30){
+        billTotal.classList.add('danger');
+        billTotal.classList.remove('warning'); 
+    }
+    else{
+        billTotal.classList.remove('warning');
+        billTotal.classList.remove('danger'); 
     }
 }
 //link the function to a click event on the calculate button
