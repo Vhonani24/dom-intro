@@ -29,16 +29,15 @@ function calculateBtnClicked(){
             totalPhoneBill += 0.75;
         }
     }
-    
     //round to two decimals
     var roundedBillTotal = totalPhoneBill.toFixed(2);
     billTotal.innerHTML = roundedBillTotal;
-    if(totalPhoneBill > 20){
+    if(totalPhoneBill >= 20 && totalPhoneBill < 30){
         billTotal.classList.add('warning');
         billTotal.classList.remove('danger');
         
     }
-    else if(totalPhoneBill > 30){
+    else if(totalPhoneBill >= 30){
         billTotal.classList.add('danger');
         billTotal.classList.remove('warning'); 
     }

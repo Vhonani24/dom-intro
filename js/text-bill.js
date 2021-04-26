@@ -1,3 +1,4 @@
+
 // get a reference to the textbox where the bill type is to be entered
 const billType = document.querySelector('.billTypeText');
 //get a reference to the add button
@@ -37,6 +38,20 @@ addButton.addEventListener('click', function(){
     callTotal.innerHTML = totalCall.toFixed(2);
     smsTotal.innerHTML = totalSms.toFixed(2);
     totalOne.innerHTML = (totalCall + totalSms).toFixed(2);
+
+    if(totalCall >= 30 && totalCall < 50){
+        callTotal.classList.add('warning');
+        callTotal.classList.remove('danger');
+        
+    }
+    else if(totalCall >= 30){
+        callTotal.classList.add('danger');
+        callTotal.classList.remove('warning'); 
+    }
+    else{
+        callTotal.classList.remove('warning');
+        callTotal.classList.remove('danger'); 
+    }
 
 
  
