@@ -39,18 +39,19 @@ addButton.addEventListener('click', function(){
     smsTotal.innerHTML = totalSms.toFixed(2);
     totalOne.innerHTML = (totalCall + totalSms).toFixed(2);
 
-    if(totalCall >= 30 && totalCall < 50){
-        callTotal.classList.add('warning');
-        callTotal.classList.remove('danger');
+    if((totalCall + totalSms) >= 30 && (totalCall + totalSms) < 50 ){
+        totalOne.classList.add('warning');
+        totalOne.classList.remove('danger');
         
     }
-    else if(totalCall >= 30){
-        callTotal.classList.add('danger');
-        callTotal.classList.remove('warning'); 
+    else if((totalCall+ totalSms) >= 50){
+        totalOne.classList.add('danger');
+        totalOne.classList.remove('warning');
+        
     }
     else{
-        callTotal.classList.remove('warning');
-        callTotal.classList.remove('danger'); 
+        totalOne.classList.remove('warning');
+        totalOne.classList.remove('danger'); 
     }
 
 

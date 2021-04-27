@@ -40,6 +40,21 @@ function radioBtnTotal(){
     var totalCosts = totalCallTwo + totalSmsTwo;
     totalSettingsTwo.innerHTML = totalCosts.toFixed(2);
 
+    if(totalCosts >= 30 && totalCosts < 50 ){
+        totalSettingsTwo.classList.add('warning');
+        totalSettingsTwo.classList.remove('danger');
+        
+    }
+    else if(totalCosts >= 50){
+        totalSettingsTwo.classList.add('danger');
+        totalSettingsTwo.classList.remove('warning');
+        
+    }
+    else{
+        totalSettingsTwo.classList.remove('warning');
+        totalSettingsTwo.classList.remove('danger'); 
+    }
+
 
 }
 
