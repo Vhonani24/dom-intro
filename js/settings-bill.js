@@ -49,16 +49,17 @@ function radioBtnTotalSettings(){
   if (addRadioBtnSettings){
       var billItemTypeSettings  = addRadioBtnSettings.value
       // billItemType2  will be 'call' or 'sms'
+      if((smsCostTotal+callCostTotal) < criticalLevelSettingOne){
+          if(billItemTypeSettings ==='call'){
+               //alert(callTotal.value += 2.75);
+               callCostTotal += callCostSettingOne;
+            }else if(billItemTypeSettings ==='sms'){
+                smsCostTotal += smsCostSettingOne;
+    }
 
-      if(billItemTypeSettings ==='call'){
-  
-          //alert(callTotal.value += 2.75);
-          callCostTotal += callCostSettingOne;
-          
-  
-      }else if(billItemTypeSettings ==='sms'){
-          smsCostTotal += smsCostSettingOne;
       }
+
+      
   }
   
   callTotalSettings.innerHTML = callCostTotal.toFixed(2);
@@ -83,7 +84,6 @@ function radioBtnTotalSettings(){
 
 
 }
-
 
 
 //add an event listener for when the 'Update settings' button is pressed
