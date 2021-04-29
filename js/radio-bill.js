@@ -43,7 +43,6 @@ function radioBtnTotal(){
     if(totalCosts >= 30 && totalCosts < 50 ){
         totalSettingsTwo.classList.add('warning');
         totalSettingsTwo.classList.remove('danger');
-        
     }
     else if(totalCosts >= 50){
         totalSettingsTwo.classList.add('danger');
