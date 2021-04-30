@@ -27,6 +27,27 @@ var callCostTotal = 0;
 var smsCostTotal = 0;
 var overAllTotal = 0; 
 
+var totalCostSettings = 0
+
+function setColors(){
+    if(totalCostSettings >= warningLevelSettingOne && totalCostSettings < criticalLevelSettingOne){
+        totalSettings.classList.add('warning');
+        totalSettings.classList.remove('danger');
+        
+    }
+    else if(totalCostSettings >= criticalLevelSettingOne){
+        totalSettings.classList.add('danger');
+        totalSettings.classList.remove('warning');
+        
+    }
+    else{
+        totalSettings.classList.remove('warning');
+        totalSettings.classList.remove('danger'); 
+    }
+}
+  
+
+
 
 
 //function to set values
@@ -35,8 +56,7 @@ function setValues(){
     smsCostSettingOne = parseFloat(smsCostSetting.value);
     warningLevelSettingOne = parseFloat(warningLevelSetting.value);
     criticalLevelSettingOne = parseFloat(criticalLevelSetting.value);
-  
-    
+    setColors();
 }
 
 
@@ -53,37 +73,25 @@ function radioBtnTotalSettings(){
           if(billItemTypeSettings ==='call'){
                //alert(callTotal.value += 2.75);
                callCostTotal += callCostSettingOne;
+               totalCostSettings += callCostSettingOne;
             }else if(billItemTypeSettings ==='sms'){
                 smsCostTotal += smsCostSettingOne;
-    }
-
-      }
-
-      
+                totalCostSettings  += smsCostSettingOne;
+            }
+        }
   }
-  
   callTotalSettings.innerHTML = callCostTotal.toFixed(2);
   smsTotalSettings.innerHTML = smsCostTotal.toFixed(2);
-  var totalCostSettings = callCostTotal + smsCostTotal;
   totalSettings.innerHTML = totalCostSettings.toFixed(2);
+  setColors();
 
-  if(totalCostSettings >= warningLevelSettingOne && totalCostSettings < criticalLevelSettingOne){
-      totalSettings.classList.add('warning');
-      totalSettings.classList.remove('danger');
-      
-  }
-  else if(totalCostSettings >= criticalLevelSettingOne){
-      totalSettings.classList.add('danger');
-      totalSettings.classList.remove('warning');
-      
-  }
-  else{
-      totalSettings.classList.remove('warning');
-      totalSettings.classList.remove('danger'); 
-  }
+  
 
 
 }
+
+
+
 
 
 //add an event listener for when the 'Update settings' button is pressed
