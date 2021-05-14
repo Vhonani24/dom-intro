@@ -6,7 +6,7 @@ function radioBills(){
     var totalRadioSmsAmount = 0;
     
     
-    function setRadioCallAmount() {
+   /* function setRadioCallAmount() {
         theRadioCallAmount = 2.75;
     }
     function setRadioSmsAmount() {
@@ -26,25 +26,25 @@ function radioBills(){
     function sendMessage() {
         totalRadioSmsAmount += theRadioSmsAmount;
 
-    }
+    }*/
     function getRadioTotalCallAmount() {
-        return totalRadioCallAmount;
+        return theRadioCallAmount;
 
     }
     function getRadioTotalSmsAmount() {
-        return totalRadioSmsAmount;
+        return theRadioSmsAmount;
 
     }
     function getRadioTotalAmount() {
-        return totalRadioCallAmount + totalRadioSmsAmount;
+        return theRadioCallAmount + theRadioSmsAmount;
     }
 
     function getRadioBillString(str){
         if(str === "call"){
-            return getRadioTotalCallAmount();
+            theRadioCallAmount += 2.75;//return getRadioTotalCallAmount();
         }
         if(str === "sms"){
-            return getRadioTotalSmsAmount();
+            theRadioSmsAmount += 0.75;//return getRadioTotalSmsAmount();
         }
     }
 
@@ -61,12 +61,12 @@ function radioBills(){
     
     return{
 
-        setRadioCallAmount,
+        /*setRadioCallAmount,
         setRadioSmsAmount,
         getRadioCallAmount,
         getRadioSmsAmount,
         phoneCall,
-        sendMessage,
+        sendMessage,*/
         getRadioTotalCallAmount,
         getRadioTotalSmsAmount,
         getRadioTotalAmount,

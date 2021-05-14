@@ -6,7 +6,7 @@ function billWithSettings() {
 
     var totalCallCost = 0;
     var totalSmsCost = 0;
-    var totalCost = 0;
+    
     function setCallCost(callCost) {
         theCallCost = callCost;
     }
@@ -61,6 +61,7 @@ function billWithSettings() {
         }
        
     }
+    
     function stopCostCount(){
         if(getTotalCost() >= getCriticalLevel()){
             return theCritical;

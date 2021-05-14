@@ -25,7 +25,7 @@ var textBillfactory = billText();
 // * add nothing for invalid values that is not 'call' or 'sms'.
 // * display the latest total on the screen
 addButton.addEventListener('click', function () {
-    alert("Inside")
+    //alert("Inside")
     //const calls = billType.value;
     //in the event listener check if the value in the bill type textbox is 'sms' or 'call'
 
@@ -43,20 +43,23 @@ addButton.addEventListener('click', function () {
     smsTotal.innerHTML = textBillfactory.getTotalSmsAmount().toFixed(2);
     totalOne.innerHTML = textBillfactory.getTotalAmount().toFixed(2);
 
-    if((totalCall + totalSms) >= 30 && (totalCall + totalSms) < 50 ){
+    
+    totalOne.classList.add(textBillfactory.getTextClassName());
+
+    /*if((totalCall + totalSms) >= 30 && (totalCall + totalSms) < 50 ){
         totalOne.classList.add('warning');
         totalOne.classList.remove('danger');
+        
 
     }
     else if((totalCall+ totalSms) >= 50){
         totalOne.classList.add('danger');
         totalOne.classList.remove('warning');
-
     }
     else{
         totalOne.classList.remove('warning');
         totalOne.classList.remove('danger'); 
-    }
+    }*/
 
 
 

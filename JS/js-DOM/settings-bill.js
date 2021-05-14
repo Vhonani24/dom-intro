@@ -17,17 +17,19 @@ const addBtn = document.querySelector('.addBtn');
 const updateBtn = document.querySelector('.updateSettings');
 
 // create a variables that will keep track of all the settings
-var callCostSettingOne = 0;
-var smsCostSettingOne = 0;
-var warningLevelSettingOne = 0 ;
-var criticalLevelSettingOne = 0;
+//var callCostSettingOne = 0;
+//var smsCostSettingOne = 0;
+//var warningLevelSettingOne = 0 ;
+//var criticalLevelSettingOne = 0;
+
+var settingsBillFactory = billWithSettings();
 
 // create a variables that will keep track of all three totals.
-var callCostTotal = 0;
-var smsCostTotal = 0;
-var overAllTotal = 0; 
+//var callCostTotal = 0;
+//var smsCostTotal = 0;
+//var overAllTotal = 0; 
 
-var totalCostSettings = 0
+//var totalCostSettings = 0
 
 function setColors(){
     if(totalCostSettings >= warningLevelSettingOne && totalCostSettings < criticalLevelSettingOne){
@@ -69,7 +71,7 @@ function radioBtnTotalSettings(){
   if (addRadioBtnSettings){
       var billItemTypeSettings  = addRadioBtnSettings.value
       // billItemType2  will be 'call' or 'sms'
-      if((smsCostTotal+callCostTotal) < criticalLevelSettingOne){
+      /*if((smsCostTotal+callCostTotal) < criticalLevelSettingOne){
           if(billItemTypeSettings ==='call'){
                //alert(callTotal.value += 2.75);
                callCostTotal += callCostSettingOne;
@@ -78,7 +80,7 @@ function radioBtnTotalSettings(){
                 smsCostTotal += smsCostSettingOne;
                 totalCostSettings  += smsCostSettingOne;
             }
-        }
+        }*/
   }
   callTotalSettings.innerHTML = callCostTotal.toFixed(2);
   smsTotalSettings.innerHTML = smsCostTotal.toFixed(2);
