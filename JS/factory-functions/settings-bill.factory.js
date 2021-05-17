@@ -34,7 +34,7 @@ function billWithSettings() {
     }
     function makeCall() {
         totalCallCost += theCallCost;
-    }
+     }
     
     function sendSms() {
         totalSmsCost += theSmsCost;
@@ -48,12 +48,13 @@ function billWithSettings() {
         return totalSmsCost;
 
     }
+
     function getTotalCost() {
-        return totalCallCost += totalSmsCost;
+        return totalCallCost + totalSmsCost;
     }
     
     function getClassName(){
-        if(getTotalCost() >= getWarningLevel() && getTotalCost() <= getCriticalLevel()){
+        if(getTotalCost() >= getWarningLevel() && getTotalCost() < getCriticalLevel()){
             return 'warning';
         }
         if(getTotalCost() >= getCriticalLevel()){
