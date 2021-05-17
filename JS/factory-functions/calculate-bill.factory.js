@@ -1,51 +1,64 @@
-function billCalculations() {
-
-  var theCallBill = 2.75;
-  var theSmsBill = 0.75;
-  var callBill = [];
-  var smsBill = [];
-  var totalBill = 0;
-
+function billCalculations(){
+  var totalSettingsBill = 0;
   
 
-  function getBillString(str) {
-    var _str = str.split(',');//convert string into an array
-
-    for (var i = 0; i < _str.length; i++) {//loop thru the array
-      var total = _str[i].trim();//remove spaces at index i
-      if (total.includes('call')) {//check condition for calls
-        callBill.push(total);//push in all reg from town into result
+  function getCalculateBillString(str){
+    var _str = str.split(',');//convert string into an array  
+   
+    
+    for(var i=0;i < _str.length;i++){//loop thru the array
+     
+      if(_str[i].includes('call')) {//check condition for calls
+        totalSettingsBill += 2.75;//push in all reg from town into result
       }
-      if (total.includes('sms')) {
-        smsBill.push(total);//check condition for messages
+      if(_str[i].includes('sms')){
+        totalSettingsBill += 0.75;//check condition for messages
       }
     }
-    totalBill = (callBill.length * theCallBill) + (smsBill.length * theSmsBill);//calculate total amount
-    return totalBill.toFixed(2);//return total
+     //return totalSettingsBill;//return total
+  }
+  
+  
+  function getTotals(){
+    return totalSettingsBill;
   }
 
-  function setClasses() {
-    if (totalBill >= 20 && totalBill < 30) {
+
+  function setClasses(){
+    if(getTotals() >= 20 && getTotals() < 30){
       return 'warning';
     }
-    if (totalBill >= 30) {
+    if(getTotals() >= 30){
       return 'danger';
     }
   }
 
   return {
+    
+    setClasses,
+    getCalculateBillString,
+    getTotals
 
-    getBillString,
-    setClasses
   }
+  
 
-
-
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
+    
+  
 }
+
+
+
+
+
+
+
+
+
+
+
