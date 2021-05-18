@@ -1,43 +1,33 @@
 function billCalculations(){
-  var totalSettingsBill = 0;
-  
+
 
   function getCalculateBillString(str){
-    var _str = str.split(',');//convert string into an array  
+    var totalSettingsBill = 0;
+  
+    var myStr = str.split(',');//convert string into an array  
    
-    
-    for(var i=0;i < _str.length;i++){//loop thru the array
+    for(var i=0;i < myStr.length;i++){//loop thru the array
+      
+      var splitStr= myStr[i].trim();//remove extra spaces
      
-      if(_str[i].includes('call')) {//check condition for calls
+      if(splitStr === 'call') {//check condition for calls
         totalSettingsBill += 2.75;//push in all reg from town into result
       }
-      if(_str[i].includes('sms')){
+      if(splitStr ==='sms'){
         totalSettingsBill += 0.75;//check condition for messages
       }
     }
-     //return totalSettingsBill;//return total
+    return totalSettingsBill.toFixed(2);//return total
+   
+     
   }
   
-  
-  function getTotals(){
-    return totalSettingsBill;
-  }
-
-
-  function setClasses(){
-    if(getTotals() >= 20 && getTotals() < 30){
-      return 'warning';
-    }
-    if(getTotals() >= 30){
-      return 'danger';
-    }
-  }
 
   return {
     
-    setClasses,
-    getCalculateBillString,
-    getTotals
+  
+    getCalculateBillString
+    
 
   }
   
