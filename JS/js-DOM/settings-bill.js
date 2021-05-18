@@ -45,6 +45,7 @@ function setUpdateValues(){
     settingsBillFactory.setSmsCost(smsCostSetting.value);
     settingsBillFactory.setWarningLevel(warningLevelSetting.value);
     settingsBillFactory.setCriticalLevel(criticalLevelSetting.value)
+    addRemoveClasses();
 }
 
 //function for add button & makings calls n Sms
@@ -70,9 +71,16 @@ function addRadioBtnSettings(){
     callTotalSetting.innerHTML = settingsBillFactory.getTotalCallCost().toFixed(2);
     smsTotalSettings.innerHTML = settingsBillFactory.getTotalSmsCost().toFixed(2);
     totalSettings.innerHTML = settingsBillFactory.getTotalCost().toFixed(2);
+    addRemoveClasses();
 
-    totalSettings.classList.add(settingsBillFactory.getClassName());
+}
+function addRemoveClasses(){
+    
+    totalSettings.classList.remove('warning');
+    totalSettings.classList.remove('danger');
 
+    totalSettings.classList.add(settingsBillFactory.getClassName());  
+    
 
 }
 //set the buttons
