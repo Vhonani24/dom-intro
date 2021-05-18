@@ -8,6 +8,7 @@ describe('The text bill factory function', function(){
         textBill.ringCall();
 
         assert.equal(2.75, textBill.getTextBillString('call'));
+        //assert.equal(2.75, textBill.getTotalAmount());
 
     });
     it('should be able to take the string "call" & return the bill for 2 calls set at 2.75 each', function(){

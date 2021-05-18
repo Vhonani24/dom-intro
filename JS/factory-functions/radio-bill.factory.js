@@ -4,9 +4,13 @@ function radioBills(){
     var theRadioSmsAmount = 0;   
     var totalRadioCallAmount = 0;
     var totalRadioSmsAmount = 0;
+   
+    var theRadioCallAmount2 = 0;
+    var theRadioSmsAmount2 = 0; 
+
     
     
-   /* function setRadioCallAmount() {
+    function setRadioCallAmount() {
         theRadioCallAmount = 2.75;
     }
     function setRadioSmsAmount() {
@@ -26,27 +30,60 @@ function radioBills(){
     function sendMessage() {
         totalRadioSmsAmount += theRadioSmsAmount;
 
-    }*/
+    }
     function getRadioTotalCallAmount() {
-        return theRadioCallAmount;
+        return totalRadioCallAmount;
 
     }
     function getRadioTotalSmsAmount() {
-        return theRadioSmsAmount;
+        return totalRadioSmsAmount;
 
     }
     function getRadioTotalAmount() {
-        return theRadioCallAmount + theRadioSmsAmount;
+      
+        return totalRadioCallAmount + totalRadioSmsAmount;
     }
-
     function getRadioBillString(str){
         if(str === "call"){
-            theRadioCallAmount += 2.75;//return getRadioTotalCallAmount();
+            return getRadioTotalCallAmount();
         }
         if(str === "sms"){
-            theRadioSmsAmount += 0.75;//return getRadioTotalSmsAmount();
+            return getRadioTotalSmsAmount();
         }
     }
+
+
+    function getRadioBillString2(str){
+        if(str === "call"){
+            theRadioCallAmount2 += 2.75;//return getRadioTotalCallAmount();
+        }
+        if(str === "sms"){
+            theRadioSmsAmount2 += 0.75;//return getRadioTotalSmsAmount();
+        }
+    }
+    function getRadioTotalCallAmount2() {
+        return theRadioCallAmount2;
+
+    }
+    function getRadioTotalSmsAmount2() {
+        return theRadioSmsAmount2;
+
+    }
+    function getRadioTotalAmount2() {
+        return theRadioCallAmount2 + theRadioSmsAmount2;
+    }
+
+    function getRadioClassName2(){
+        if(getRadioTotalAmount2() >= 30 && getRadioTotalAmount2() < 50){
+          return 'warning';
+        }
+        if(getRadioTotalAmount2() >= 50){
+          return 'danger';
+        }
+    }
+    
+
+    
 
     function getRadioClassName(){
         if(getRadioTotalAmount() >= 30 && getRadioTotalAmount() < 50){
@@ -61,17 +98,23 @@ function radioBills(){
     
     return{
 
-        /*setRadioCallAmount,
+        setRadioCallAmount,
         setRadioSmsAmount,
         getRadioCallAmount,
         getRadioSmsAmount,
         phoneCall,
-        sendMessage,*/
+        sendMessage,
         getRadioTotalCallAmount,
         getRadioTotalSmsAmount,
         getRadioTotalAmount,
         getRadioBillString,
-        getRadioClassName
+        getRadioClassName,
+        getRadioBillString2,
+        getRadioClassName2,
+        getRadioTotalCallAmount2,
+        getRadioTotalSmsAmount2,
+        getRadioTotalAmount2
+        
         
 
     }

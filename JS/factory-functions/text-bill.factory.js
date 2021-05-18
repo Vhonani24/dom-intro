@@ -4,50 +4,71 @@ function billText(){
     var totalCallAmount = 0;
     var totalSmsAmount = 0;
     
+    var theCallAmount1 =0;
+    var theSmsAmount1 =0;
+
     
-    // function setCallAmount() {
-    //     theCallAmount = 2.75;
-    // }
-    // function setSmsAmount() {
-    //     theSmsAmount = 0.75;
-    // }
-
-    // function getCallAmount() {
-    //     return theCallAmount;
-    // }
-    // function getSmsAmount() {
-    //     return theSmsAmount;
-    // }
-
-    // function ringCall() {
-    //     totalCallAmount += theCallAmount;
-    // }
     
-    // function sendText() {
-    //     totalSmsAmount += theSmsAmount;
+    function setCallAmount() {
+        theCallAmount = 2.75;
+    }
+    function setSmsAmount() {
+        theSmsAmount = 0.75;
+    }
 
-    // }
-   
-   
+    function getCallAmount() {
+        return theCallAmount;
+     }
+    function getSmsAmount() {
+        return theSmsAmount;
+    }
+
+     function ringCall() {
+         totalCallAmount += theCallAmount;
+     }
+    
+     function sendText() {
+         totalSmsAmount += theSmsAmount;
+
+    }
+    function getTextBillString2(str){
+        if(str === "call"){
+            theCallAmount1  += 2.75;
+        }
+        if(str === "sms"){
+            theSmsAmount1 += 0.75;        }
+    }
+    function getTotalCallAmount2() {
+        return theCallAmount1;
+
+    }
+    function getTotalSmsAmount2() {
+        return theSmsAmount1;
+
+    }
+    function getTotalAmount2() {
+        return theCallAmount1 + theSmsAmount1;
+    }
    
 
     function getTextBillString(str){
         if(str === "call"){
-            theCallAmount  += 2.75;
+            return getTotalCallAmount();
         }
         if(str === "sms"){
-            theSmsAmount += 0.75;        }
+            return getTotalSmsAmount();        }
     }
+    
     function getTotalCallAmount() {
-        return theCallAmount;
+        return totalCallAmount;
 
     }
     function getTotalSmsAmount() {
-        return theSmsAmount;
+        return totalSmsAmount;
 
     }
     function getTotalAmount() {
-        return theCallAmount + theSmsAmount;
+        return totalCallAmount + totalSmsAmount;
     }
 
     function getTextClassName(){
@@ -58,22 +79,35 @@ function billText(){
           return 'danger';
         }
     }
+    function getTextClassName2(){
+        if(getTotalAmount2() >= 30 && getTotalAmount2() < 50){
+          return 'warning';
+        }
+        if(getTotalAmount2() >= 50){
+          return 'danger';
+        }
+    }
     
     
     
     return{
-
-        // setCallAmount,
-        // setSmsAmount,
-        // getCallAmount,
-        // getSmsAmount,
-        // ringCall,
-        // sendText,
+        
+        setCallAmount,
+         setSmsAmount,
+         getCallAmount,
+        getSmsAmount,
+         ringCall,
+         sendText,
         getTotalCallAmount,
         getTotalSmsAmount,
         getTotalAmount,
         getTextBillString,
-        getTextClassName
+        getTextClassName,
+        getTextBillString2,
+        getTotalAmount2,
+        getTotalSmsAmount2,
+        getTotalCallAmount2,
+        getTextClassName2
         
 
     }
