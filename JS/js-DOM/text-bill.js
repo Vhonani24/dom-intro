@@ -14,7 +14,7 @@ const totalOne = document.querySelector('.totalOne');
 var textBillfactory = billText();
 
 
-/
+
 addButton.addEventListener('click', function () {
     
     textBillfactory.getTextBillString2(billType.value);
